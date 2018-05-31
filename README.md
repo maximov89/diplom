@@ -114,5 +114,5 @@
 
 По умолчанию в системе логируется ключевые действия системы (Модерация вопросов, модерация тем, модерация пользователей), файл сохранения логов хранится по адресу <strong>storage\logs\admins.log</strong> .
 
-## Схема БД
-![Схема БД](https://raw.githubusercontent.com/vnucka/faq/master/scheme%20db.png)
+## База данных
+https://ibb.co/n26Uvy
