@@ -115,4 +115,4 @@
 По умолчанию в системе логируется ключевые действия системы (Модерация вопросов, модерация тем, модерация пользователей), файл сохранения логов хранится по адресу <strong>storage\logs\admins.log</strong> .
 
 ## База данных
-https://image.ibb.co/jL4Gay/image.jpg
+[img]https://image.ibb.co/jL4Gay/image.jpg[/img]
