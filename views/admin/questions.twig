@@ -1,0 +1,89 @@
+{% include "admin/header.twig" %}
+
+	<article class="wrapper">
+
+		{% include "admin/sidebar.twig" %}
+		<section class="content">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="pull-left">Управление вопросами</h4>
+					<form action="/admin/questions/{% if page %}{{page}}/{% endif %}" method="get" class="form-inline pull-right">
+						<div class="form-group">
+							<label for="orderBy">Сортировка по</label>
+							<select class="form-control" name="orderBy" onchange="this.form.submit()">
+								<option value="date">Дате</option>
+								<optgroup label="Состоянию">
+									<option {{activeHasAnswer == '1' ? 'selected' : ''}} value="has_answer1">С ответом</option>
+									<option {{activeHasAnswer == '0' ? 'selected' : ''}} value="has_answer0">Без ответа</option>
+								</optgroup>
+								<optgroup label="Статусу">
+									<option {{activeStatus == 'pending' ? 'selected' : ''}} value="pending">В ожидании</option>
+									<option {{activeStatus == 'published' ? 'selected' : ''}} value="published">Опубликован</option>
+									<option {{activeStatus == 'hidden' ? 'selected' : ''}} value="hidden">Скрыт</option>
+								</optgroup>
+								<optgroup label="Категории">
+									{% for category in categories %}
+										<option {{activeCategory == category.id ? 'selected' : ''}} value="category-{{category.id}}">{{category.name}}</option>
+									{% endfor %}
+								</optgroup>
+							</select>
+						</div>
+						<div class="form-group">
+							<button name="order" value="{{order}}" class="btn btn-default">
+								<span class="glyphicon glyphicon-sort"></span>
+							</button>
+						</div>
+					</form>
+					<div class="clearfix"></div>
+				</div>
+				<div class="panel-body">
+					{% for question in questions %}
+						<div class="question-item">
+							<h2 class="question-title"><a href="/admin/questions/question/{{question.id}}/">{{question.title}}</a></h2>
+							<p class="text-muted meta">
+								<i>
+									Спросил:
+									<span class="meta-data">{{question.user_name}}</span>
+									<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+									<span class="meta-data">{{question.date}}</span>
+
+									<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+									<span class="meta-data">{{question.category_name}}</span>
+								</i>
+							</p>
+							<p>{{question.content}}</p>
+							<a href="/admin/questions/question/{{question.id}}/" class="btn btn-primary btn-xs manage"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Управлять</a>
+							<form method="post"><button type="submit" class="btn btn-danger btn-xs remove" name="remove" value="{{question.id}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Удалить</button></form>
+							<p>
+								Статус: 
+								<span class="label label-info">
+									{% if question.status == 'pending' %}
+										В ожидании
+									{% elseif question.status == 'published' %}
+										Опубликован
+									{% else %}
+										Скрыт
+									{% endif %}
+								</span>
+								<span class="label label-info">
+									{% if question.has_answer %}
+										С ответом
+									{% else %}
+										Без ответа
+									{% endif %}
+								</span>
+							</p>
+						</div>
+						<div class="clearfix"></div>
+					{% endfor %}
+
+				</div>
+			</div>
+			
+		{% include "admin/paginate.twig" %}
+
+		</section>
+
+	</article>
+
+{% include "admin/footer.twig" %}

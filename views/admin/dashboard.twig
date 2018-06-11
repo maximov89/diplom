@@ -1,0 +1,127 @@
+{% include "admin/header.twig" %}
+
+	<article class="wrapper">
+
+		{% include "admin/sidebar.twig" %}
+
+		<section class="content">
+			<div class="row statistics">
+				<div class="col-md-4 col-sm-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4>Задано вопросов</h4>
+						</div>
+						<div class="panel-body">
+							<span class="glyphicon glyphicon-fire text-danger" aria-hidden="true"></span>
+							<span class="stat-text">{{stats.qFull}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4>Получено ответов</h4>
+						</div>
+						<div class="panel-body">
+							<span class="glyphicon glyphicon-ok-sign text-success" aria-hidden="true"></span>
+							<span class="stat-text">{{stats.qHasAnswer}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4>Без ответа</h4>
+						</div>
+						<div class="panel-body">
+							<span class="glyphicon glyphicon-minus-sign text-info" aria-hidden="true"></span>
+							<span class="stat-text">{{stats.qNoAnswer}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4>Опубликовано ответов</h4>
+						</div>
+						<div class="panel-body">
+							<span class="glyphicon glyphicon-check text-success" aria-hidden="true"></span>
+							<span class="stat-text">{{stats.qPublic}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4>В ожидании</h4>
+						</div>
+						<div class="panel-body">
+							<span class="glyphicon glyphicon-time text-info" aria-hidden="true"></span>
+							<span class="stat-text">{{stats.qPending}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4>Скрыто</h4>
+						</div>
+						<div class="panel-body">
+							<span class="glyphicon glyphicon-ban-circle text-muted" aria-hidden="true"></span>
+							<span class="stat-text">{{stats.qHidden}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4>Новые вопросы</h4>
+				</div>
+				<div class="panel-body">
+					{% for question in questions %}
+					<div class="question-item">
+						<h2 class="question-title"><a href="/admin/questions/question/{{question.id}}/">{{question.title}}</a></h2>
+						<p class="text-muted meta">
+							<i>
+								Спросил:
+								<span class="meta-data">{{question.user_name}}</span>
+								<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+								<span class="meta-data">{{question.date}}</span>
+		
+								<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+								<span class="meta-data">{{question.category_name}}</span>
+							</i>
+						</p>
+						<p>{{question.content}}</p>
+						<a href="/admin/questions/question/{{question.id}}/" class="btn btn-primary btn-xs manage"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Управлять</a>
+						<form method="post"><button type="submit" class="btn btn-danger btn-xs remove" name="remove" value="{{question.id}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Удалить</button></form>
+						<p>
+								Статус: 
+								<span class="label label-info">
+									{% if question.status == 'pending' %}
+										В ожидании
+									{% elseif question.status == 'published' %}
+										Опубликован
+									{% else %}
+										Скрыт
+									{% endif %}
+								</span>
+								<span class="label label-info">
+									{% if question.has_answer %}
+										С ответом
+									{% else %}
+										Без ответа
+									{% endif %}
+								</span>
+						</p>
+					</div>
+					<div class="clearfix"></div>
+					{% endfor %}
+				</div>
+			</div>
+		
+		</section>
+
+	</article>
+
+{% include "admin/footer.twig" %}

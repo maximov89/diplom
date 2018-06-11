@@ -1,0 +1,74 @@
+{% include "admin/header.twig" %}
+
+	<article class="wrapper">
+
+		{% include "admin/sidebar.twig" %}
+
+		<section class="content">
+		<h4>Управление администраторами</h4>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<span>Добавить нового</span>
+				</div>
+				<div class="panel-body">
+					<form method="post">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="row">
+									<div class="col-md-4">
+										<p><input type="text" class="form-control" placeholder="Имя" name="name"></p>
+									</div>
+									<div class="col-md-4">
+										<p><input type="text" class="form-control" placeholder="Email" name="email"></p>
+									</div>
+									<div class="col-md-4">
+										<p><input type="text" class="form-control" placeholder="Пароль" name="password"></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 text-right">
+								<button type="submit" name="add" class="btn btn-primary btn-xs pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Добавить</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Редактировать
+				</div>
+				<div class="panel-body">
+					{%for user in users%}
+					<form method="post" class="form-horizontal">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="row">
+									<label class="control-label col-md-4 col-lg-1">Имя</label>
+									<div class="col-md-8 col-lg-3">
+										<p><input type="text" value="{{user.name}}" name="name" class="form-control"></p>
+									</div>
+									<label class="control-label col-md-4 col-lg-1">Email</label>
+									<div class="col-md-8 col-lg-3">
+										<p><input type="text" value="{{user.email}}" name="email" class="form-control"></p>
+									</div>
+									<label class="control-label col-md-4 col-lg-1">Пароль</label>
+									<div class="col-md-8 col-lg-3">
+										<p><input type="text" value="{{user.password}}" name="password" class="form-control"></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 text-right">
+								<button type="submit" name="save" value="{{user.id}}" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Сохранить</button>
+									<button type="submit" name="remove" value="{{user.id}}" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Удалить</button>
+							</div>
+						</div>
+						<hr>
+					</form>
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+
+	</article>
+
+{% include "admin/footer.twig" %}

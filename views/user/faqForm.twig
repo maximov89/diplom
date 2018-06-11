@@ -1,0 +1,55 @@
+{% include "user/header.twig" %}
+	<div class="container">
+		{% include "user/subheader.twig" %}
+		<div class="row">
+			<div class="col-md-9">
+				
+				{% if errorFields or errorEmail or errorCategory %}
+				<div class="alert alert-dismissible alert-warning">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<h4><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Ошибка!</h4>
+						<p>{{errorCategory ? '<strong>Категория</strong> должна быть выбрана'}}</p>
+						{% for field in errorFields %}
+							<p>Поле <strong>{{field}}</strong> должно быть заполнено</p>
+						{% endfor %}
+						<p>{{errorEmail ? '<strong>Email</strong> должен быть введен корректно'}}</p>
+				</div>
+				{% endif %}
+
+				{% if succes %}
+					<div class="alert alert-success" role="alert">
+						<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Вопрос успешно отправлен.
+					</div>
+				{% else %}
+				<h2 class="question-title">Задать вопрос</h2>
+				<form method="post">
+					<div class="row">
+						<div class="col-md-4">
+							<p>
+								<select class="form-control" name="category">
+									<option value="default">Выбрать категорию</option>
+									{% for category in categories %}
+									<option {{fieldData.category == category.id ? 'selected'}} value="{{category.id}}">{{category.name}}</option>
+									{% endfor %}
+								</select>
+							</p>
+						</div>
+						<div class="col-md-4">
+							<p><input placeholder="Имя" class="form-control" type="text" value="{{fieldData.name}}" name="name"></p>
+						</div>
+						<div class="col-md-4">
+							<p><input placeholder="Email" class="form-control" type="text" value="{{fieldData.email}}" name="email"></p>
+						</div>
+					</div>
+					<p><input placeholder="Заголовок" class="form-control" type="text" value="{{fieldData.title}}" name="title"></p>
+					<p><textarea placeholder="Текст вопроса" class="form-control" rows="7" name="text">{{fieldData.text}}</textarea></p>
+					<p class="text-right">
+						<input type="submit" class="btn btn-primary" value="Отправить">
+					</p>
+				</form>
+				{% endif %}
+			</div>
+			{% include "user/sidebar.twig" %}
+		</div>
+	</div>
+{% include "user/footer.twig" %}

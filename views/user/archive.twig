@@ -1,0 +1,29 @@
+{% include "user/header.twig" %}
+	<div class="container">
+		{% include "user/subheader.twig" %}
+		<div class="row">
+			<div class="col-md-9">
+				{% for question in questions %}
+				<div class="question-item">
+					<h2><a href="/question/{{question.id}}/">{{question.title}}</a></h2>
+					<p class="text-muted meta">
+						<i>
+							Спросил:
+							<span class="meta-data">{{question.user_name}}</span>
+							<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+							<span class="meta-data">{{question.date}}</span>
+							
+							<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+							<span class="meta-data">{{question.category_name}}</span>
+						</i>
+					</p>
+					<p>{{question.content}}</p>
+				</div>
+				<div class="clearfix"></div>
+				{% endfor %}
+				{% include "user/paginate.twig" %}
+			</div>
+			{% include "user/sidebar.twig" %}
+		</div>
+	</div>
+{% include "user/footer.twig" %}

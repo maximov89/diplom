@@ -1,0 +1,16 @@
+<h1 class="main-title pull-left">Сервис вопросов и ответов</h1>
+<div class="pull-right"><a href="/ask/" class="btn btn-primary">Задать вопрос</a></div>
+<div class="clearfix"></div>
+<hr>
+<ol class="breadcrumb">
+	<li><a href="/">Главная</a></li>
+{% if categoryMain %}
+	<li class="active">{{categoryMain.name}}</li>
+{% elseif question %}
+	<li><a href="/category/{{question.category_id}}/">{{question.category_name}}</a></li>
+	<li class="active">{{question.title}}</li>
+{% elseif questions %}
+{% else %}
+	<li class="active">Задать вопрос</li>
+{% endif %}
+</ol>

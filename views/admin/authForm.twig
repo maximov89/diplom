@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Авторизация</title>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="//bootswatch.com/lumen/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="/css/style.css">
+		<!-- endbuild -->
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+	<div class="container">
+		<form class="form-signin" method="post">
+			{% if error %}
+			<div class="alert alert-danger" role="alert">{{error}}</div>
+			{% endif %}
+			<h4 class="form-signin-heading text-center">Авторизация</h4>
+			<label for="inputEmail" class="sr-only">Имя пользователя:</label>
+			<input type="text" id="userUsername" class="form-control" placeholder="Имя пользователя" {{name ? '' : 'autofocus'}}  name="name" value="{{name}}">
+			<label for="inputPassword" class="sr-only">Пароль</label>
+			<input type="password" id="inputPassword" class="form-control" placeholder="Пароль" name="password">
+			<button name="auth" class="btn btn-md btn-primary btn-block" type="submit">Войти</button>
+		</form>
+	</div>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</body>
+</html>

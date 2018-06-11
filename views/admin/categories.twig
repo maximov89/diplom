@@ -1,0 +1,57 @@
+{% include "admin/header.twig" %}
+
+	<article class="wrapper">
+
+		{% include "admin/sidebar.twig" %}
+
+		<section class="content">
+		<h4>Управление категориями</h4>
+			<div class="panel panel-default">
+				<div class="panel-heading">Добавить новую</div>
+				<div class="panel-body">
+					<form method="post">
+						<div class="row">
+							<div class="col-md-8">
+								<p><input type="text" class="form-control" name="name" placeholder="Заголовок"></p>
+							</div>
+							<div class="col-md-4 text-right">
+								<button type="submit" name="add" class="btn btn-primary btn-xs pull-right"><span class="glyphicon glyphicon-plus-sign"></span> Добавить</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Редактировать
+				</div>
+				<div class="panel-body">
+					{% for category in categories %}
+					<form method="post" class="form-horizontal">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="row">
+									<label class="control-label col-md-2">Заголовок</label>
+									<div class="col-md-6">
+										<input type="text" value="{{category.name}}" name="name" class="form-control">
+									</div>
+									<div class="col-md-4 questions-count">
+										Вопросов в категории <span class="badge">{{category.qFull}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 text-right">
+								<button type="submit" name="save" value="{{category.id}}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Сохранить</button>
+								<button type="submit" name="remove" value="{{category.id}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Удалить</button> <span data-toggle="tooltip" data-placement="top" title="Удаление категории также удалит все привязанные к ней вопросы, ответы и данные гостей" class="glyphicon glyphicon-exclamation-sign text-danger"></span>
+							</div>
+						</div>
+						<hr>
+					</form>
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+
+	</article>
+
+{% include "admin/footer.twig" %}

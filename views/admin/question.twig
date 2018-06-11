@@ -1,0 +1,85 @@
+{% include "admin/header.twig" %}
+
+	<article class="wrapper">
+
+		{% include "admin/sidebar.twig" %}
+
+		<section class="content">
+			<ol class="breadcrumb">
+				<li><a href="/admin/questions/">Управление вопросами</a></li>
+				<li class="active">{{question.title}}</li>
+			</ol>
+			<h4 class="pull-left">Вопрос</h4>
+			<form method="post">
+			<div class="pull-right">
+				<button type="submit" name="save" value="" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Сохранить</button>
+				<button type="submit" name="remove" value="" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Удалить</button>
+			</div>
+			<div class="clearfix"></div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="panel panel-default">
+							<div class="panel-heading">Заголовок</div>
+							<div class="panel-body">
+								<input type="text" class="form-control" name="title" value="{{question.title}}">
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">Вопрос</div>
+							<div class="panel-body">
+								<textarea class="form-control" name="question-content" id="field-question" rows="7">{{question.content}}</textarea>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<span class="pull-left">Ответ</span>
+								<button type="submit" name="remove-save" class="btn btn-xs btn-warning pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Удалить ответ</button>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-body">
+								<textarea class="form-control" name="answer-content" id="field-answer" rows="7">{{answer.content}}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">Категория</div>
+							<div class="panel-body">
+								<select class="form-control" name="category">
+									{% for category in categories %}
+										<option {{question.category_id == category.id ? 'selected'}} value="{{category.id}}">{{category.name}}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">Статус</div>
+							<div class="panel-body">
+								<select class="form-control" name="status">
+									<option {{question.status == 'pending' ? 'selected'}} value="pending">В ожидании</option>
+									<option {{question.status == 'published' ? 'selected'}} value="published">Опубликован</option>
+									<option {{question.status == 'hidden' ? 'selected'}} value="hidden">Скрыт</option>
+								</select>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">Имя</div>
+							<div class="panel-body">
+								<input type="text" class="form-control" name="name" value="{{question.user_name}}">
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">Email</div>
+							<div class="panel-body">
+								<input type="text" class="form-control" name="email" value="{{question.user_email}}">
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		
+		</section>
+
+	</article>
+
+{% include "admin/footer.twig" %}

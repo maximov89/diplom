@@ -1,0 +1,251 @@
+body {
+	font-family: Arial;
+}
+header {
+	padding-top: 40px;
+}
+.question-title {
+	font-size: 26px;
+}
+.main-title {
+	font-size: 16px;
+}
+.meta-data {
+	margin-right: 15px;
+}
+.logo {
+	width: 85px;
+	height: auto;
+}
+.logo-home {
+	width: 85px;
+	height: auto;
+}
+.state .state-item {
+	margin: 0 0 0 12px;
+}
+.state .state-item .glyphicon {
+	font-size: 20px;
+	vertical-align: middle;
+}
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+.form-signin .checkbox {
+	font-weight: normal;
+}
+.form-signin .form-control {
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+.form-signin .form-control:focus {
+	z-index: 2;
+}
+.form-signin input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+.statistics .glyphicon {
+	font-size: 75px;
+	vertical-align: middle;
+	opacity: .5;
+	margin: 0 15px;
+}
+.statistics .stat-text {
+  font-size: 45px;
+  font-weight: bold;
+  vertical-align: middle;
+	opacity: .7;
+}
+.topbar {
+	background: #2A3F54;
+	border-color: #2A3F54;
+	border-radius: 0px;
+}
+.topbar .navbar-nav,
+.topbar .navbar-nav a,
+.topbar .navbar-text,
+.topbar .navbar-text a {
+	color: #ffffff;
+}
+
+.topbar .navbar-nav a:hover,
+.topbar .navbar-text a:hover {
+	color: #E0E0E0;
+}
+.navbar-fixed-top .navbar-collapse {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.navbar-default .navbar-toggle,
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+	border-color: rgba(255, 255, 255, 0.15);
+	background-color: rgba(255, 255, 255, 0.05);
+}
+.navbar-default .navbar-toggle .icon-bar,
+.navbar-default .navbar-toggle:hover .icon-bar,
+.navbar-default .navbar-toggle:focus .icon-bar {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+.navbar-default .navbar-collapse {
+	border-color: rgba(255, 255, 255, 0.09);
+}
+
+.hello-text {
+	margin-right: 15px;
+}
+.glyphicon {
+	margin: 0 2px;
+}
+.sidebar {
+	z-index: 1000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 100%;
+	overflow-y: auto;
+	background: #2A3F54;
+	color: #ffffff;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+.main {
+	width: 100%;
+	position: relative;
+	padding-bottom:20px;
+}
+.wrapper .sidebar {
+	left: 0;
+}
+.sidebar-nav {
+	position: absolute;
+	top: 110px;
+	width: 50px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sidebar-nav li {
+	line-height: 40px;
+}
+.sidebar-nav li a {
+	display: block;
+	text-decoration: none;
+	color: #e8e8e8;
+	padding: 0;
+	text-align:center;
+}
+
+.sidebar-nav li a:hover, .sidebar-nav li.active a {
+	text-decoration: none;
+	color: #fff;
+	background: #fff;
+	background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+	text-decoration: none;
+}
+
+.sidebar-nav li span, .subbar li span {
+display : none;
+}
+
+.wrapper {
+	padding-left: 180px;
+}
+
+.sidebar,
+.sidebar-nav {
+	width: 180px;
+}
+
+.sidebar-nav li a {
+	text-align: left;
+	padding: 0 0 0 10px;
+}
+
+.sidebar-nav li span {
+	display: inline;
+}
+
+nav.subbar {
+	position: relative;
+	width: 100%;
+	border-radius: 0px;
+	background: #fff;
+	margin: 50px 0 0 0;
+	padding: 10px 0 0 0;
+	z-index: 2;
+}
+nav.subbar > ul.nav.nav-tabs {
+	padding: 0 5px;
+}
+nav.subbar > ul.nav.nav-tabs > li.active > a {
+	background: #dedede;
+	border-top: 1px solid #a6a6a6;
+	border-left: 1px solid #a6a6a6;
+	border-right: 1px solid #a6a6a6;
+	border-radius: 0px;
+}
+
+.content {
+	margin-top: 90px;
+	padding: 0 40px 40px;
+}
+
+.wrapper .question-item {
+ border: 1px solid #F5F5F5;
+ padding: 0 15px 5px;
+ border-radius: 4px;
+ position: relative;
+}
+.wrapper .question-item .btn.manage,
+.wrapper .question-item .btn.remove {
+	top: 7px;
+}
+.wrapper .question-item .btn.manage {
+	position: absolute;
+	right: 100px;
+}
+.wrapper .question-item .btn.remove {
+	position: absolute;
+	right: 7px;
+}
+.wrapper .question-item .label {
+	margin: 0 2px;
+}
+.wrapper .clearfix {
+	margin-top: 15px;
+}
+
+.questions-count {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+footer {
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
