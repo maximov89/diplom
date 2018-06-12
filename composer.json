@@ -1,0 +1,20 @@
+{
+    "name": "alex/diplom",
+    "require": {
+        "twig/twig": "^2.3"
+    },
+    "autoload": {
+        "classmap": [
+            "models",
+            "controllers"
+        ]
+    },
+    "optimize-autoloader": true,
+    "authors": [
+        {
+            "name": "Alex M",
+            "email": "orlangur89@mail.ru"
+        }
+    ],
+    "minimum-stability": "stable"
+}
